@@ -93,8 +93,8 @@ public class Inventory {
             List<String> products = entry.getValue();
 
             if(products.contains(product)) {
-                return category;
-            }
+                    return category;
+                }
 
         }
         return null;
@@ -106,13 +106,14 @@ public class Inventory {
             return;
         }
 
-        System.out.println("\nCategoría   |   Producto   |   Cantidad");
+        System.out.println("\nColección:");
+        System.out.printf("%-20s %-20s %-10s\n", "Categoría", "Producto", "Cantidad");
 
         for (String product : userCollection.keySet()) {
             String category = findCategory(product);
             int amount = userCollection.get(product);
 
-            System.out.println(category + "   |   " + product + "   |   " + amount);
+            System.out.printf("%-20s %-20s %-10d\n", category, product, amount);
         }
     }
 
@@ -121,7 +122,8 @@ public class Inventory {
             System.out.println("Colección vacía");
             return;
         }
-        System.out.println("\nCategoria   |   Producto   |   Cantidad");
+        System.out.println("\nColección ordenada por categoría:");
+        System.out.printf("%-20s %-20s %-10s\n", "Categoría", "Producto", "Cantidad");
 
         for(Map.Entry<String, List<String>> entry : inventory.entrySet()){
 
@@ -133,7 +135,7 @@ public class Inventory {
 
                     int amount = userCollection.get(product);
 
-                    System.out.println(category + "   |   " + product + "   |   " + amount);
+                    System.out.printf("%-20s %-20s %-10d\n", category, product, amount);
                 }
             }
         }
@@ -141,18 +143,22 @@ public class Inventory {
 
     private void showInventory() {
        System.out.println("\nInventario:");
+       System.out.printf("%-25s %-20s\n", "Producto", "Categoría");
+
 
         for(Map.Entry<String, List<String>> entry : inventory.entrySet()){
 
             String category = entry.getKey();
 
             for(String product : entry.getValue()){
-                System.out.println(product + " -> " + category);
+                System.out.printf("%-25s %-20s\n", product, category);
             }
         }
     }
 
     private void showInventoryInOrder() {
+        System.out.println("\nInventario ordenado por categoría:");
+        System.out.printf("%-25s %-20s\n", "Categoría", "Producto");
 
         List<String> categories = new ArrayList<>(inventory.keySet());
         Collections.sort(categories);
@@ -160,10 +166,9 @@ public class Inventory {
         for(String category : categories){
 
             for(String product : inventory.get(category)){
-                System.out.println(product + " -> " + category);
+                System.out.printf("%-25s %-20s\n", category, product);
             }
         }
     }
-
     
 }
