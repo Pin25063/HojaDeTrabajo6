@@ -22,7 +22,7 @@ public class Main {
                     String[] parts = line.split("\\|");
 
                     String key = parts[0].trim();
-                    String value = parts[1].trim();
+                    String value = parts[1].trim().toLowerCase();
                     
                     if (!map.containsKey(key)) {
                         map.put(key, new ArrayList<String>());

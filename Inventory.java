@@ -51,7 +51,6 @@ public class Inventory {
                     showInventoryInOrder();
                     break;
                 case 7:
-                    option = 0;
                     break;
                 default:
                     System.out.println("Opción inválida");
@@ -62,7 +61,7 @@ public class Inventory {
 
     private void addProduct(Scanner scanner) {
         System.out.print("Ingresa el nombre del producto: ");
-        String product = scanner.nextLine();
+        String product = scanner.nextLine().trim().toLowerCase();
 
         String category = findCategory(product);
 
@@ -77,7 +76,7 @@ public class Inventory {
 
     private void showCategory(Scanner scanner) {
         System.out.print("Ingresa el nombre del producto: ");
-        String product = scanner.nextLine();
+        String product = scanner.nextLine().trim().toLowerCase();
 
         String category = findCategory(product);
 
