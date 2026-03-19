@@ -1,3 +1,5 @@
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -15,7 +17,8 @@ public class Inventory {
     }
 
     public void menu() {
-        Scanner scanner = new Scanner(System.in);
+        //Scanner scanner = new Scanner(new InputStreamReader(System.in, StandardCharsets.UTF_8));
+        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
         int option = 0;
 
         while (option != 7) {
@@ -62,9 +65,10 @@ public class Inventory {
     private void addProduct(Scanner scanner) {
         System.out.print("Ingresa el nombre del producto: ");
         String product = scanner.nextLine().trim().toLowerCase();
-
+        //product = "Mesas de jardín";
         String category = findCategory(product);
 
+        System.out.println(product);
         if (category == null) {
             System.out.println("Producto no encontrado en el inventario");
             return;
@@ -79,7 +83,7 @@ public class Inventory {
         String product = scanner.nextLine().trim().toLowerCase();
 
         String category = findCategory(product);
-
+        
         if(category == null){
             System.out.println("Producto no encontrado");
         } else {

@@ -9,6 +9,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         ClassFactory factory = new ClassFactory();
         
+        System.setOut(new java.io.PrintStream(System.out, true, java.nio.charset.StandardCharsets.UTF_8));
         System.out.print("1. Hashmap\n2. Treemap\n3. LinkedHashMap\n\nSelecciona el tipo de mapa que deseas utilizar: ");
         int option = scanner.nextInt();
         
